@@ -1,0 +1,9 @@
+.project
+.pydevproject
+.settings/
+.idea/
+*.*~
+*.pyc
+*.db
+*.sqlite
+*.sublime-*
