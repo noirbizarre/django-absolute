@@ -22,7 +22,7 @@ Context processor
 -----------------
 
 Add ``absolute.context_processors.absolute`` to your ``settings.TEMPLATE_CONTEXT_PROCESSORS``.
-Django Absolute context processor depends on request context processor:
+Django Absolute context processor depends on request context processor::
 
     from django.conf import global_settings
 
@@ -33,10 +33,10 @@ Django Absolute context processor depends on request context processor:
 
 Then you can access the following variables in your templates:
 
- * ``ABSOLUTE_ROOT``: full absolute root URL (without trailing slash) based on incoming request
- * ``ABSOLUTE_ROOT_URL``: full absolute root URL (with trailing slash) based on incoming request
- * ``SITE_ROOT``: full absolute root URL (without trailing slash) based on current Django Site
- * ``SITE_ROOT_URL``: full absolute root URL (with trailing slash) based on current Django site
+* ``ABSOLUTE_ROOT``: full absolute root URL (without trailing slash) based on incoming request
+* ``ABSOLUTE_ROOT_URL``: full absolute root URL (with trailing slash) based on incoming request
+* ``SITE_ROOT``: full absolute root URL (without trailing slash) based on current Django Site
+* ``SITE_ROOT_URL``: full absolute root URL (with trailing slash) based on current Django site
 
 
 Template tags
@@ -44,11 +44,10 @@ Template tags
 
 Django absolute provide 2 template tags:
 
- * ``absolute``: acts like ``url`` but provide a full URL based on incoming request.
- * ``site``: acts like ``url`` but provide a full URL based on current Django Site.
+* ``absolute``: acts like ``url`` but provide a full URL based on incoming request.
+* ``site``: acts like ``url`` but provide a full URL based on current Django Site.
 
-To use theses template tags, you need to load the ``absolute`` template tag library.
-
+To use theses template tags, you need to load the ``absolute`` template tag library.::
 
     {% url index %}
 
