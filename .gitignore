@@ -8,3 +8,6 @@
 *.sqlite
 *.sublime-*
 *.egg-info
+build/
+dist/
+
