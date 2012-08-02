@@ -1,6 +1,9 @@
 Django Absolute
 ===============
 
+.. image:: https://secure.travis-ci.org/noirbizarre/django-absolute.png
+   :target: http://travis-ci.org/noirbizarre/django-absolute
+
 Django Absolute provides context processors and template tags to use full absolute URLs in templates.
 
 Installation
