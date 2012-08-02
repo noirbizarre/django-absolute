@@ -16,7 +16,7 @@ from django.test.utils import override_settings
     TEMPLATE_CONTEXT_PROCESSORS=global_settings.TEMPLATE_CONTEXT_PROCESSORS + (
         'django.core.context_processors.request',
         'absolute.context_processors.absolute',
-    ),
+    )
 )
 class AbsoluteTest(TestCase):
     urls = 'absolute.urls'
