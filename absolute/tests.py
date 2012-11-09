@@ -19,7 +19,7 @@ from django.test.utils import override_settings
     )
 )
 class AbsoluteTest(TestCase):
-    urls = 'absolute.urls'
+    urls = 'absolute.test_urls'
 
     def test_context_processors(self):
         RX_ROOT = re.compile(r'^http(?:s)?://.*[^/]$')
