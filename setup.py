@@ -1,17 +1,35 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-from setuptools import setup
+import re
+from setuptools import setup, find_packages
+
+
+def rst(filename):
+    '''
+    Load rst file and sanitize it for PyPI.
+    Remove unsupported github tags:
+     - code-block directive
+    '''
+    content = open(filename).read()
+    return re.sub(r'\.\.\s? code-block::\s*(\w|\+)+', '::', content)
+
+
+long_description = '\n'.join((
+    rst('README.rst'),
+    rst('CHANGELOG.rst'),
+    ''
+))
 
 setup(
     name='django-absolute',
     version=__import__('absolute').__version__,
     description=__import__('absolute').__description__,
-    long_description=open('README.rst').read(),
+    long_description=long_description,
     url='https://github.com/noirbizarre/django-absolute',
     download_url='http://pypi.python.org/pypi/django-absolute',
     author='Axel Haustant',
     author_email='noirbizarre+absolute@gmail.com',
-    packages=['absolute', 'absolute.templatetags'],
+    packages=find_packages(),
     install_requires=['django'],
     license='LGPL',
     classifiers=[
