@@ -1,8 +1,8 @@
 Changelog
 =========
 
-Current
--------
+0.2 (2012-11-10)
+----------------
 
 - ``{% site %}`` fallback on http protocol if ``request`` is missing.
 
