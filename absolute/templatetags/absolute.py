@@ -33,8 +33,11 @@ class SiteUrlNode(URLNode):
     def render(self, context):
         path = super(SiteUrlNode, self).render(context)
         domain = Site.objects.get_current().domain
-        request = context['request']
-        protocol = 'https' if request.is_secure() else 'http'
+        if 'request' in context:
+            request = context['request']
+            protocol = 'https' if request.is_secure() else 'http'
+        else:
+            protocol = 'http'
         return "%s://%s%s" % (protocol, domain, path)
 
 

@@ -5,6 +5,7 @@ import json
 from django.conf import global_settings
 from django.contrib.sites.models import Site
 from django.core.urlresolvers import reverse
+from django.template import Context, Template
 from django.test import TestCase
 from django.test.utils import override_settings
 
@@ -39,9 +40,22 @@ class AbsoluteTest(TestCase):
     def test_template_tags(self):
         url = reverse('test_tags')
         response = self.client.get(url)
+
         self.assertEqual(response.status_code, 200)
+        self.assertTrue('request' in response.context)
+
+        domain = Site.objects.get_current().domain
         data = json.loads(response.content)
 
         self.assertEqual(data['absolute'], 'http://testserver/test_context')
-        domain = Site.objects.get_current().domain
         self.assertEqual(data['site'], 'http://%s/test_context' % domain)
+
+    def test_site_fallback(self):
+        '''Should fallback on http protocol if request is missing'''
+        t = Template('''
+            {% load absolute %}
+            site: "{% site test_tags %}"
+            ''')
+        rendered = t.render(Context())
+        domain = Site.objects.get_current().domain
+        self.failUnless('site: "http://%s/test_tags"' % domain in rendered)
