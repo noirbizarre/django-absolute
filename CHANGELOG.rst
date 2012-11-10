@@ -4,7 +4,7 @@ Changelog
 Current
 -------
 
-- nothing yet
+- Fix packaging
 
 
 0.2 (2012-11-10)

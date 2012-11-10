@@ -1,2 +1,2 @@
-include README.rst
+include README.rst LICENSE CHANGELOG.rst MANIFEST.in
 recursive-include  absolute *.html
