@@ -50,6 +50,19 @@ class AbsoluteTest(TestCase):
         self.assertEqual(data['absolute'], 'http://testserver/test_context')
         self.assertEqual(data['site'], 'http://%s/test_context' % domain)
 
+    def test_template_tag_as_syntax(self):
+        url = reverse('test_tags_as')
+        response = self.client.get(url)
+
+        self.assertEqual(response.status_code, 200)
+        self.assertTrue('request' in response.context)
+
+        domain = Site.objects.get_current().domain
+        data = json.loads(response.content)
+
+        self.assertEqual(data['absolute'], 'http://testserver/test_context')
+        self.assertEqual(data['site'], 'http://%s/test_context' % domain)
+
     def test_site_fallback(self):
         '''Should fallback on http protocol if request is missing'''
         t = Template('''

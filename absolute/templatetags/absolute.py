@@ -8,9 +8,15 @@ register = Library()
 
 class AbsoluteUrlNode(URLNode):
     def render(self, context):
+        asvar, self.asvar = self.asvar, None  # Needed to get a return value from super
         path = super(AbsoluteUrlNode, self).render(context)
         request = context['request']
-        return request.build_absolute_uri(path)
+        absolute_url = request.build_absolute_uri(path)
+        if asvar:
+            context[asvar] = absolute_url
+            return ''
+        else:
+            return absolute_url
 
 
 @register.tag
@@ -31,6 +37,7 @@ def absolute(parser, token):
 
 class SiteUrlNode(URLNode):
     def render(self, context):
+        asvar, self.asvar = self.asvar, None  # Needed to get a return value from super
         path = super(SiteUrlNode, self).render(context)
         domain = Site.objects.get_current().domain
         if 'request' in context:
@@ -38,7 +45,12 @@ class SiteUrlNode(URLNode):
             protocol = 'https' if request.is_secure() else 'http'
         else:
             protocol = 'http'
-        return "%s://%s%s" % (protocol, domain, path)
+        site_url = "%s://%s%s" % (protocol, domain, path)
+        if asvar:
+            context[asvar] = site_url
+            return ''
+        else:
+            return site_url
 
 
 @register.tag
