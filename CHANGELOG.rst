@@ -4,7 +4,7 @@ Changelog
 Current
 -------
 
-- nothing yet
+- Handle template tag `as` syntax
 
 
 0.2.1 (2012-11-10)

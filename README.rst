@@ -11,9 +11,13 @@ Installation
 
 You can install Django Absolute with pip:
 
+.. code-block:: bash
+
     pip install django-absolute
 
 or with easy_install:
+
+.. code-block:: bash
 
     easy_install django-absolute
 
@@ -25,7 +29,9 @@ Context processor
 -----------------
 
 Add ``absolute.context_processors.absolute`` to your ``settings.TEMPLATE_CONTEXT_PROCESSORS``.
-Django Absolute context processor depends on request context processor::
+Django Absolute context processor depends on request context processor:
+
+.. code-block:: python
 
     from django.conf import global_settings
 
@@ -50,7 +56,9 @@ Django absolute provide 2 template tags:
 * ``absolute``: acts like ``url`` but provide a full URL based on incoming request.
 * ``site``: acts like ``url`` but provide a full URL based on current Django Site.
 
-To use theses template tags, you need to load the ``absolute`` template tag library.::
+To use theses template tags, you need to load the ``absolute`` template tag library.
+
+.. code-block:: html+django
 
     {% url index %}
 
@@ -58,4 +66,9 @@ To use theses template tags, you need to load the ``absolute`` template tag libr
     {% absolute index %}
     {% site index %}
 
-These template tags have exactly the same syntax as ``url``.
+These template tags have exactly the same syntax as ``url``, including the `as` syntax:
+
+.. code-block:: html+django
+
+    {% absolute index as the_url %}
+    {{ the url }}
