@@ -1,8 +1,8 @@
 Changelog
 =========
 
-Current
--------
+0.2.2 (2012-11-18)
+------------------
 
 - Handle template tag `as` syntax
 
