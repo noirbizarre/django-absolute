@@ -66,9 +66,9 @@ To use theses template tags, you need to load the ``absolute`` template tag libr
     {% absolute index %}
     {% site index %}
 
-These template tags have exactly the same syntax as ``url``, including the `as` syntax:
+These template tags have exactly the same syntax as ``url``, including the "`as`" syntax:
 
 .. code-block:: html+django
 
     {% absolute index as the_url %}
-    {{ the url }}
+    {{ the_url }}
