@@ -4,7 +4,7 @@ Changelog
 Current
 -------
 
-- nothing yet
+- Check if django.contrib.sites is enabled (thanks to Rodrigo Primo)
 
 
 0.2.2 (2012-11-18)
