@@ -60,9 +60,9 @@ To use theses template tags, you need to load the ``absolute`` template tag libr
 
 .. code-block:: html+django
 
-    {% url index %}
-
     {% load absolute %}
+
+    {% url index %}
     {% absolute index %}
     {% site index %}
 
@@ -72,3 +72,35 @@ These template tags have exactly the same syntax as ``url``, including the "`as`
 
     {% absolute index as the_url %}
     {{ the_url }}
+
+
+If you use Django 1.5, you need to use the "new-style" url syntax (quoted parameters):
+
+.. code-block:: html+django
+
+    {% load absolute %}
+
+    {% url "index" %}
+    {% absolute "index" %}
+    {% site "index" %}
+
+    {% absolute "index" as the_url %}
+    {{ the_url }}
+
+
+If you want to match the "new-style" syntax in Django < 1.5 you need to load ``absolute_future`` instead (same behavior as ``{% load url from future %}``).
+
+.. code-block:: html+django
+
+    {% load url from future %}
+    {% url "index" %}
+
+    {% load absolute_future %}
+
+    {% absolute "index" %}
+    {% site "index" %}
+
+    {% absolute "index" as the_url %}
+    {{ the_url }}
+
+For more informations, see the `Django 1.5 release notes <https://docs.djangoproject.com/en/dev/releases/1.5/>`_.

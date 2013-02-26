@@ -5,6 +5,9 @@ Current
 -------
 
 - Check if django.contrib.sites is enabled (thanks to Rodrigo Primo)
+- Django 1.5 compatibility (Documentation and tests)
+- Added ``absolute_future`` template tag library
+  (match ``{% load url from future %}`` syntax).
 
 
 0.2.2 (2012-11-18)
