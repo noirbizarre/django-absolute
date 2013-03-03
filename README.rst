@@ -93,10 +93,9 @@ If you want to match the "new-style" syntax in Django < 1.5 you need to load ``a
 .. code-block:: html+django
 
     {% load url from future %}
-    {% url "index" %}
-
     {% load absolute_future %}
 
+    {% url "index" %}
     {% absolute "index" %}
     {% site "index" %}
 
