@@ -1,8 +1,8 @@
 Changelog
 =========
 
-Current
--------
+0.3 (2013-03-03)
+----------------
 
 - Check if django.contrib.sites is enabled (thanks to Rodrigo Primo)
 - Django 1.5 compatibility (Documentation and tests)
