@@ -49,9 +49,7 @@ class AbsoluteContextProcessorTest(TestCase):
 
 
 class AbsoluteTestMixin(object):
-    urls = patterns('',
-        url(r'^test$', 'test', name='test_url')
-    )
+    urls = patterns('', url(r'^test$', 'test', name='test_url'))
 
     def setUp(self):
         self.factory = RequestFactory()
