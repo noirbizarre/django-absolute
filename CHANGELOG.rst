@@ -8,6 +8,7 @@ Current
 - Django 1.5 compatibility (Documentation and tests)
 - Added ``absolute_future`` template tag library
   (match ``{% load url from future %}`` syntax).
+- drop support for Python 2.6 (test only)
 
 
 0.2.2 (2012-11-18)
