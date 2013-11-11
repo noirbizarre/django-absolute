@@ -10,6 +10,7 @@ class AbsoluteUrlNode(URLNode):
     def render(self, context):
         asvar, self.asvar = self.asvar, None  # Needed to get a return value from super
         path = super(AbsoluteUrlNode, self).render(context)
+        self.asvar = asvar
         request = context['request']
         absolute_url = request.build_absolute_uri(path)
         if asvar:
@@ -39,6 +40,7 @@ class SiteUrlNode(URLNode):
     def render(self, context):
         asvar, self.asvar = self.asvar, None  # Needed to get a return value from super
         path = super(SiteUrlNode, self).render(context)
+        self.asvar = asvar
         domain = Site.objects.get_current().domain
         if 'request' in context:
             request = context['request']
